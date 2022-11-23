@@ -4,10 +4,11 @@ body{
     margin: 0;
     padding: 0;
     background: #020b14;
+    overflow-x:hidden;
 }
 #header{
     width: 100%;
-    height: 70px;
+    height: 10vh;
     background: #020b14;
     position: fixed;
     z-index: 1;
@@ -18,6 +19,8 @@ body{
     color: white;
     font-size: 20px;
     margin-left: 10vh;
+    text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff00de, 0 0 80px #ff00de, 0 0 90px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de;
+
 }
 #container{
     margin: 0;
@@ -26,7 +29,7 @@ body{
     /* height: 100vh; */
 }
 #logo{
-    width: 60vh;
+    width: 70vh;
     position: absolute;
     left: 0;
     top: 0;
@@ -35,35 +38,63 @@ body{
     margin: auto;
 }
 #team{
-    display: table;
-    width: 100vh;
-    padding-top: 5vh;
-    padding-bottom: 5vh;
+    display: flex;
+    /* display: table; */
+    padding-top: 4.5vh;
+    padding-bottom: 4.5vh;
     padding-left: 2.5vh;
     padding-right: 2.5vh;
-    height: 40vh;
+    height: 43vh;
     background: #020b14;
-    /* overflow-x: scroll;
-    overflow: hidden; */
-    white-space:nowrap;
+    overflow-x: scroll;
+    /* white-space:nowrap; */
+}
+#team::-webkit-scrollbar {
+    height: 7px;
+    background-color: (1,1,1,0);
+}
+#team::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #434343;
+}
+#team::-webkit-scrollbar-track {
+    margin: 4vh;
+    margin-right: 5vh;
 }
 .person{
-    display: inline-block;
+    display: Flex;
+    text-align: justify;
     border-radius:25px;
     border-width: 10px;
     margin-left: 2.5vh;
     margin-right: 2.5vh;
-    width: 70vh;
+    min-width: 70vh;
     height: 35vh;
     background:#aa8285;
-    padding: 20px 20px 20px 20px;
+    padding: 20px 20px 20px 20px;    
+    overflow-y: scroll;
 }
-
+.person::-webkit-scrollbar {
+    width: 7px;
+    background-color: (1,1,1,0);
+}
+.person::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #434343;
+}
+.person::-webkit-scrollbar-track {
+    margin: 4vh;
+    margin-right: 5vh;
+}
+.info{
+    display: inline;
+    /* max-width: 70vh; */
+    margin: 0;
+}
 .headers{
     color: white;
     font-size: 30px;
     margin-left: 10vh;
-    /* text-shadow: 0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 20px #ffffff, 0 0 40px #ff00de, 0 0 80px #ff00de, 0 0 90px #ff00de, 0 0 100px #ff00de, 0 0 150px #ff00de; */
 
 
 }
@@ -82,6 +113,8 @@ body{
 .photo{
     width: 20vh;
     height: 20vh;
+    margin: 0 3vh 0 0;
+    /*  */
 
 }
 #MainScreen{
@@ -94,4 +127,16 @@ body{
     background-size: cover;
     position: relative;
 
+}
+#users{
+    
+    border-radius:25px;
+    margin: 5vh 15vh;
+    background: #aa8285;
+    padding: 5vh;
+}
+.user{
+    
+    text-align: justify;
+    min-height: 25vh;
 }
