@@ -133,7 +133,7 @@ body::-webkit-scrollbar-track {
 #MainScreen{
     width: 100%;
     height: 100vh;
-    background: url("1620031964_3-phonoteka_org-p-fon-na-kompyuter-estetika-4.jpg") no-repeat center center; 
+    background: url("../../resources/1620031964_3-phonoteka_org-p-fon-na-kompyuter-estetika-4.jpg") no-repeat center center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
