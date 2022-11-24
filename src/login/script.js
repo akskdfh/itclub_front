@@ -1,5 +1,6 @@
 
 const baseUrl = "http://localhost:8080";
+
 const email=document.getElementById("email");
 const password=document.getElementById("password");
 
@@ -9,7 +10,7 @@ button.addEventListener('click', () =>{
     
         makeLoginRequest(baseUrl + "/api/auth/login/", getRequestJson(), (response) =>{
             if(response.token !== null) {
-                console.log(response.token)
+                
             }
         })
     }
@@ -26,7 +27,8 @@ async function makeLoginRequest(url, requestJson, callback) {
         body: JSON.stringify(requestJson)
     })
     .then(response => response.json())
-    .then(response => callback(response));
+    .then(response => callback(response))
+    .catch(() => alert("Your login or password is incorrect!"));
 } 
 
 function getRequestJson() {

@@ -1,6 +1,6 @@
 
 const baseUrl = "http://localhost:8080";
-
+let uuid = "";
 
 const fullNameInputField = document.getElementById("FullNameInputField");
 const positionInputField = document.getElementById("positionInputField");
@@ -13,42 +13,107 @@ const confirmPasswordInputField = document.getElementById("ConfirmPasswordInputF
 
 const signupButton = document.getElementById("signupButton");
 
-signupButton.addEventListener('click', () => {
-    if(passwordInputField.value === confirmPasswordInputField.value) {
-        makeRegisterRequest(baseUrl + "/api/auth/signup/", getRequestJson(), (response) =>{
-            
-        })
+
+
+function isDataValid() {
+    return true;
+}
+
+signupButton.addEventListener('click', async () => {
+    if(isDataValid()) {
+        response = await makeRegisterRequest();
+        if(response == null) {
+            console.log("registration error");
+        }else if(response.token != null) {
+            localStorage.setItem("Token", response.token);
+            localStorage.setItem("TokenType", response.tokenType);
+            console.log("registration is success")
+            saveUserProfile();
+        }else {
+            let err = "";
+            for(let i = 0; i<response.length; i++) {
+                err += response[i].message + "\n";
+            }
+            alert(err);
+            console.log("registration error")
+        } 
     }
 })
-
-async function makeRegisterRequest(url, requestJson, callback) {
-    fetch(url, 
+async function makeRegisterRequest() {
+    console.log(getReigistrationRequestJson());
+    return fetch(baseUrl + "/api/auth/signup/", 
       {
         method: 'POST',
         headers: {
             'Accept': 'application/json',
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify(requestJson)
+        body: JSON.stringify(getReigistrationRequestJson())
       })
-    .then(response => response.json())
-    .then(response => callback(JSON.stringify(response)))
-} 
-
-function getRequestJson() {
-    let json;
-    json = 
-    {
-        "username": "string",
-        "login": "string",
-        "password": "string" 
+    .then(response => {return response.json()})
+    .catch(reasone => console.log("Error: " + reasone.message))
+}
+function getReigistrationRequestJson() {
+    return {
+        "username": usernameInputField.value,
+        "login": loginInputField.value,
+        "password": passwordInputField.value 
     };
-    json.username = usernameInputField.value;
-    json.login = loginInputField.value;
-    json.password = passwordInputField.value;
-    return json
 }
 
-function saveToken(token) {
-    
+
+
+async function saveUserProfile() {
+    let response = await makeUserProfileRequest('GET');
+    if(response == null) {
+        console.log("get user error");
+    } else{
+        console.log(response);
+        if(response.uuid != null) {
+            uuid = response.uuid;
+            response = await makeUserProfileRequest('PUT');
+        }
+    }
 }
+async function makeUserProfileRequest(method) {
+    let body;
+    if(method == 'PUT') body = JSON.stringify(getProfileInfo()); else body = null; 
+    let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
+    console.log(token);
+    return fetch(baseUrl + "/api/user/profile", 
+      {
+        method: method,
+        headers: {
+            Authorization: token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            mode: 'cors',
+            'Access-Control-Allow-Origin': '*'
+        },
+        body: body,
+      })
+    .then(response => {
+        console.log(response);
+        if(method == "GET") return response.json(); else return "";},
+        reasone => console.log(reasone))
+    .catch(reasone => console.log("Error: " + reasone.message));
+}
+function getProfileInfo() {
+    return {
+        "uuid": uuid,
+        "name": fullNameInputField.value,
+        "avatarLink": null,
+        "faculty": null,
+        "course": null,
+        "description": descriptionInputField.value
+    };
+}
+
+
+function getTeamInfo() {
+    return {
+
+    }
+}
+
+
