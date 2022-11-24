@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    
     <link rel="stylesheet" href="./style.css">
-    <script src="script.js"></script>
-
 </head>
 <body>
     <div id="container">
@@ -21,27 +18,28 @@
                 <div id="personal">
                     <h2>Personal data</h2>
                     <form>
-                        <input class="data" type="text" placeholder="Full name">
-                        <input class="data" type="text" placeholder="Position">
-                        <input class="data" type="text" placeholder="About you">
-                        <input class="data" type="password" placeholder="Name of team">
+                        <input id="FullNameInputField" class="data" type="text" placeholder="Full name">
+                        <input id="PositionInputField" class="data" type="text" placeholder="Position">
+                        <input id="DescriptionInputField" class="data" type="text" placeholder="About you">
+                        <input id="TeamNameInputField" class="data" type="password" placeholder="Name of team">
                     </form>
                 </div>
                 <div id="account">
                     <h2>Account security</h2>
                     <form>
-                        <input class="data" type="text" placeholder="Username">
-                        <input class="data" type="text" placeholder="Login">
-                        <input class="data" type="text" placeholder="Password">
-                        <input class="data" type="password" placeholder="Confirm Password">
+                        <input id="UsernameInputField" class="data" type="text" placeholder="Username">
+                        <input id="LoginInputField" class="data" type="text" placeholder="Login">
+                        <input id="PasswordInputField" class="data" type="text" placeholder="Password">
+                        <input id="ConfirmPasswordInputField" class="data" type="password" placeholder="Confirm Password">
                     </form>
                 </div>
             </div>
         <div id="button"> 
-            <a href="#" class="knopka">Sign up</a>
+            <a href="#" class="knopka" id="signupButton">Sign up</a>
             <p class="info">Already have an account? <a href="../login/index.html" class="log">Log in </a> </p>
         </div>
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>
