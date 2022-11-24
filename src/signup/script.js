@@ -1,6 +1,7 @@
 
 const baseUrl = "http://localhost:8080";
 
+
 const fullNameInputField = document.getElementById("FullNameInputField");
 const positionInputField = document.getElementById("positionInputField");
 const descriptionInputField = document.getElementById("DescriptionInputField");
@@ -12,11 +13,10 @@ const confirmPasswordInputField = document.getElementById("ConfirmPasswordInputF
 
 const signupButton = document.getElementById("signupButton");
 
-signupButton.addEventListener('click', () =>{
-    console.log(getRequestJson());
-    if(passwordInputField.textContent === confirmPasswordInputField.textContent) {
+signupButton.addEventListener('click', () => {
+    if(passwordInputField.value === confirmPasswordInputField.value) {
         makeRegisterRequest(baseUrl + "/api/auth/signup/", getRequestJson(), (response) =>{
-            console.log(response);
+            
         })
     }
 })
@@ -47,4 +47,8 @@ function getRequestJson() {
     json.login = loginInputField.value;
     json.password = passwordInputField.value;
     return json
+}
+
+function saveToken(token) {
+    
 }
