@@ -101,7 +101,7 @@ body::-webkit-scrollbar-track {
 }
 .info{
     display: inline;
-    /* max-width: 70vh; */
+    /* width: 100%; */
     margin: 0;
 }
 .headers{
@@ -155,7 +155,7 @@ body::-webkit-scrollbar-track {
 }
 .position{
     margin: 0;
-    font-size: 20px;
+    font-size: 30px;
 }
 .description{
     margin-top: 1vh;
