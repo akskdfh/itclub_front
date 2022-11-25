@@ -193,8 +193,10 @@ function getTeamInfo() {
 }
 
 async function setPosition(teamUuid) {
-    console.log(await makeSetPosTeamsRequest(teamUuid));
-
+    response = await makeSetPosTeamsRequest(teamUuid);
+    if(response.ok) {
+        window.location.replace("http://127.0.0.1:5500/src/main/index.html")
+    }
 }
 async function makeSetPosTeamsRequest(teamUuid) {
     let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
