@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Регистрация</title>
     <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="../../resources/fKHB2wFVbVo-transformed (1).ico" href="../../resources/fKHB2wFVbVo-transformed (1).ico">
 </head>
 <body>
     <div id="container">
@@ -17,11 +18,22 @@
             <div id="forms">
                 <div id="personal">
                     <h2>Personal data</h2>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
                     <form>
-                        <input id="FullNameInputField" class="data" type="text" placeholder="Full name">
+                        <input id="FullNameInputField" class="data" type="text" placeholder="Full name">                         
+                        <select id="positionInputField" class="data1">
+                            <option value="1">Position</option>
+                            <option value="2" >mobile-developer</option>
+                            <option value="3">backend-developer</option>
+                            <option value="4">frontend-developer</option>
+                            <option value="5">team-lead</option>
+                            <option value="6">designer</option>
+                        </select>
+                        
                         <input id="PositionInputField" class="data" type="text" placeholder="Position">
                         <input id="DescriptionInputField" class="data" type="text" placeholder="About you">
                         <input id="TeamNameInputField" class="data" type="password" placeholder="Name of team">
+                        <p align="left">Фото: <input type="file" name="photo" ></p>
                     </form>
                 </div>
                 <div id="account">
@@ -41,5 +53,6 @@
         </div>
     </div>
     <script src="script.js"></script>
+ 
 </body>
 </html>
