@@ -10,7 +10,9 @@ button.addEventListener('click', () =>{
     
         makeLoginRequest(baseUrl + "/api/auth/login/", getRequestJson(), (response) =>{
             if(response.token !== null) {
-                
+                localStorage.setItem("Token", response.token);
+                localStorage.setItem("TokenType", response.tokenType);
+                window.location.replace("http://127.0.0.1:5500/src/main/index.html")
             }
         })
     }
@@ -32,14 +34,9 @@ async function makeLoginRequest(url, requestJson, callback) {
 } 
 
 function getRequestJson() {
-    let json;
-    json = 
-    {
-            "login": "string@string.ru",
-            "password": "string"
+    return {
+            "login": email.value,
+            "password": password.value
     };
-    json.login = email.value;
-    json.password = password.value;
-    return json
 }
 
