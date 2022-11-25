@@ -54,7 +54,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     /* display: table; */
     padding-top: 4.5vh;
-    padding-bottom: 4.5vh;
+    padding-bottom: 4vh;
     padding-left: 2.5vh;
     padding-right: 2.5vh;
     height: 43vh;
