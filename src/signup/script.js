@@ -3,7 +3,7 @@ const baseUrl = "http://localhost:8080";
 let uuid = "";
 
 const fullNameInputField = document.getElementById("FullNameInputField");
-const positionInputField = document.getElementById("positionInputField");
+const positionInputField = document.getElementById("PositionInputField");
 const descriptionInputField = document.getElementById("DescriptionInputField");
 const teamNameInputField = document.getElementById("TeamNameInputField");
 const usernameInputField = document.getElementById("UsernameInputField");
@@ -72,6 +72,9 @@ async function saveUserProfile() {
         if(response.uuid != null) {
             uuid = response.uuid;
             response = await makeUserProfileRequest('PUT');
+            if(response != null) {
+                saveTeamInfo();
+            }
         }
     }
 }
@@ -79,7 +82,6 @@ async function makeUserProfileRequest(method) {
     let body;
     if(method == 'PUT') body = JSON.stringify(getProfileInfo()); else body = null; 
     let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
-    console.log(token);
     return fetch(baseUrl + "/api/user/profile", 
       {
         method: method,
@@ -110,10 +112,110 @@ function getProfileInfo() {
 }
 
 
+
+async function saveTeamInfo() {
+    let teamName = teamNameInputField.value;
+    let teams = await makeGetAllTeamsRequest();
+    console.log(teams);
+    let team = null;
+    if(teams == null) return;
+    for(let i = 0; i<teams.length; i++) {
+        if(teams[i].name === teamName) {
+            team = teams[i];
+        }
+    }
+
+    let response = null;
+    if(team === null) {
+        let body = getTeamInfo()
+        console.log(body);
+        response = await makeTeamRequest("post", "create", body);
+        console.log("create");
+        setPos();
+    } else {
+        response = await makeTeamRequest("post", `${team.uuid}/follow`, null)
+        console.log("follow " + team.uuid);
+        setPos();
+    }
+}
+async function setPos() {
+    let teams = await makeGetAllTeamsRequest();
+    console.log(teams);
+    let team = null;
+    if(teams == null) return;
+    for(let i = 0; i<teams.length; i++) {
+        if(teams[i].name === teamNameInputField.value) {
+            team = teams[i];
+        }
+    }   
+    if(team !== null) {
+        setPosition(team.uuid);
+    }
+}
+async function makeGetAllTeamsRequest() {
+    let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
+    return fetch(baseUrl + "/api/team/", 
+      {
+        method: 'get',
+        headers: {
+            Authorization: token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            mode: 'cors',
+            'Access-Control-Allow-Origin': '*'
+        },
+      })
+    .then(response => { return response.json() } )
+    .catch(reasone => console.log("Error: " + reasone.message));
+}
+async function makeTeamRequest(method, urlSuffix, body) {
+    let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
+    return fetch(baseUrl + "/api/team/" + urlSuffix, 
+      {
+        method: method,
+        headers: {
+            Authorization: token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            mode: 'cors',
+            'Access-Control-Allow-Origin': '*'
+        },
+        body: JSON.stringify(body),
+      })
+    .then(response => { return response } )
+    .catch(reasone => console.log("Error: " + reasone.message));
+}
 function getTeamInfo() {
     return {
-
+        "name": teamNameInputField.value,
+        "description": null
     }
 }
 
+async function setPosition(teamUuid) {
+    console.log(await makeSetPosTeamsRequest(teamUuid));
+
+}
+async function makeSetPosTeamsRequest(teamUuid) {
+    let token = localStorage.getItem("TokenType") + localStorage.getItem("Token");
+    return fetch(baseUrl + `/api/team/${teamUuid}/positions`, 
+      {
+        method: 'post',
+        headers: {
+            Authorization: token,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            mode: 'cors',
+            'Access-Control-Allow-Origin': '*',
+        },
+        body: JSON.stringify(getPositions())
+      })
+    .then(response => { return response} )
+    .catch(reasone => console.log("Error: " + reasone.message));
+}
+function getPositions() {
+    return [
+        positionInputField.value
+    ]
+}
 
