@@ -61,6 +61,7 @@ function getReigistrationRequestJson() {
     };
 }
 
+<<<<<<< HEAD
 
 
 async function saveUserProfile() {
@@ -221,3 +222,8 @@ function getPositions() {
     ]
 }
 
+=======
+function saveToken(token) {
+    
+}
+>>>>>>> api2

@@ -75,7 +75,7 @@ body::-webkit-scrollbar-track {
     margin-right: 5vh;
 }
 .person{
-    display: Flex;
+    /* display: Flex; */
     text-align: justify;
     border-radius:25px;
     border-width: 10px;
@@ -145,18 +145,28 @@ body::-webkit-scrollbar-track {
     
     /* border-radius:25px; */
     margin: 0vh 15vh;
-    background: #aa8285;
-    padding: 2.5vh 5vh;
+
+    padding: 1vh 5vh;
 }
 .user{
-    margin: 3vh 5vh;
+    background: #aa8285;
+    padding: 3vh 5vh;
+    margin: 2.5vh 0;
     text-align: justify;
-    min-height: 22vh;
+    min-height: 20vh;
+    min-width: min-content;
 }
-.position{
+p.position{
     margin: 0;
-    font-size: 30px;
+    font-size: 23px;
+    font-style: italic;
 }
 .description{
     margin-top: 1vh;
+}
+h2{
+    margin: 0;
+}
+p.info{
+    margin: 0;
 }

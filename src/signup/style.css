@@ -29,14 +29,14 @@ body{
 
 #forms {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     max-width: 1000px;
     margin: 0 auto;
 }
 
 #personal{
-    padding: 10vh 0;
+    padding: 8vh 0;
     text-align: center;
     width: 50%;
     margin-right: 5%;
@@ -44,7 +44,8 @@ body{
     /*float:left*/
 }
 h2{
-    margin-bottom: 8vh;
+    margin-top: 0;
+    margin-bottom: 6vh;
 }
 
 form {
@@ -59,8 +60,17 @@ form {
     width: 100%;
     /*width: 60vh;*/
 }
+
+.data1{
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 2vh;
+    height: 6vh;
+    width: 102%;
+    /*width: 60vh;*/
+}
 #account{
-    padding: 10vh 0;
+    padding: 8vh 0;
     text-align: center;
     width: 50%;
     margin-left: 5%;
