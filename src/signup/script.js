@@ -3,7 +3,7 @@ const baseUrl = "http://localhost:8080";
 let uuid = "";
 
 const fullNameInputField = document.getElementById("FullNameInputField");
-const positionInputField = document.getElementById("PositionInputField");
+const positionInputField = document.getElementById("positionInputField");
 const descriptionInputField = document.getElementById("DescriptionInputField");
 const teamNameInputField = document.getElementById("TeamNameInputField");
 const usernameInputField = document.getElementById("UsernameInputField");
@@ -16,6 +16,12 @@ const signupButton = document.getElementById("signupButton");
 
 
 function isDataValid() {
+    if(passwordInputField.value !== confirmPasswordInputField.value) {
+        return false;
+    }
+    if(!loginInputField.value.includes("@")) {
+        return false;
+    }
     return true;
 }
 
@@ -50,7 +56,7 @@ async function makeRegisterRequest() {
         },
         body: JSON.stringify(getReigistrationRequestJson())
       })
-    .then(response => {return response.json()})
+    .then(response => {if(response.ok) {return response.json()}})
     .catch(reasone => console.log("Error: " + reasone.message))
 }
 function getReigistrationRequestJson() {
@@ -60,8 +66,6 @@ function getReigistrationRequestJson() {
         "password": passwordInputField.value 
     };
 }
-
-<<<<<<< HEAD
 
 
 async function saveUserProfile() {
@@ -149,6 +153,7 @@ async function setPos() {
             team = teams[i];
         }
     }   
+    console.log(team);
     if(team !== null) {
         setPosition(team.uuid);
     }
@@ -196,7 +201,7 @@ function getTeamInfo() {
 async function setPosition(teamUuid) {
     response = await makeSetPosTeamsRequest(teamUuid);
     if(response.ok) {
-        window.location.replace("http://127.0.0.1:5500/src/main/index.html")
+       window.location.replace("http://127.0.0.1:5500/src/main/index.html")
     }
 }
 async function makeSetPosTeamsRequest(teamUuid) {
@@ -222,8 +227,3 @@ function getPositions() {
     ]
 }
 
-=======
-function saveToken(token) {
-    
-}
->>>>>>> api2
