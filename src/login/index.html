@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="./login.css">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="../../resources/fKHB2wFVbVo-transformed (1).ico" href="../../resources/fKHB2wFVbVo-transformed (1).ico" >
 </head>
 <body>
     <div id="container">
@@ -14,20 +15,21 @@
             
         </div>
         <div id="main"> 
-            <object id="logo" data="image2vector (4).svg" > </object>
+            <object id="logo" data="../../resources/image2vector (4).svg" > </object>
         <!-- <img id="logo" src="image2vector (4).svg" alt="logo" > -->
         <!-- <textarea id="input_data" name="input_data" cols="40" rows="18"></textarea></p> -->
         <div id="box">
             <p class="big">LOG IN</p>
             <form>
-                <input class="data" type="text" placeholder="Email or Username">
-                <input class="data" type="password" placeholder="Password">
+                <input id ="email" class="data" type="text" placeholder="Email or Username">
+                <input class="data" id="password" type="password" placeholder="Password">
             </form>
-            <a href="#" class="knopka">Sign in</a>
-            <p class="info">Don’t have an account? <a href="signup.html" class="sign">Sign up </a> </p>
+            <a href="#" id ="log" class="knopka">Sign in</a>
+            <p class="info">Don’t have an account? <a href="../signup/index.html" class="sign">Sign up </a> </p>
         </div>
 
         </div>
     </div>
+    <script src="script.js"></script>
 </body>
 </html>

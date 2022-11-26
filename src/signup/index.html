@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="icon" type="../../resources/fKHB2wFVbVo-transformed (1).ico" href="../../resources/fKHB2wFVbVo-transformed (1).ico">
+</head>
+<body>
+    <div id="container">
+        <div id="header">
+            <p id="name"> IT Science Club <!-- <a href="#" id="logg">Log in</a> <a href="#" id="signup">Sign up</a> --> </p> 
+            
+        </div>
+        <div id="main"> 
+            <div id="forms">
+                <div id="personal">
+                    <h2>Personal data</h2>
+                    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-multiselect/0.9.13/js/bootstrap-multiselect.min.js"></script>
+                    <form>
+                        <input id="FullNameInputField" class="data" type="text" placeholder="Full name">                         
+                        <select id="positionInputField" class="data1">
+                            <option value="Position">Position</option>
+                            <option value="mobile-developer" >mobile-developer</option>
+                            <option value="backend-developer">backend-developer</option>
+                            <option value="frontend-developer">frontend-developer</option>
+                            <option value="team-lead">team-lead</option>
+                            <option value="designer">designer</option>
+                        </select>
+                        
+                        <!-- <input id="PositionInputField" class="data" type="text" placeholder="Position"> -->
+                        <input id="DescriptionInputField" class="data" type="text" placeholder="About you">
+                        <input id="TeamNameInputField" class="data" type="text" placeholder="Name of team">
+                        <!-- <p align="left">Фото: <input type="file" name="photo" ></p> -->
+                    </form>
+                </div>
+                <div id="account">
+                    <h2>Account security</h2>
+                    <form>
+                        <input id="UsernameInputField" class="data" type="text" placeholder="Username">
+                        <input id="LoginInputField" class="data" type="text" placeholder="Login">
+                        <input id="PasswordInputField" class="data" type="text" placeholder="Password">
+                        <input id="ConfirmPasswordInputField" class="data" type="password" placeholder="Confirm Password">
+                    </form>
+                </div>
+            </div>
+        <div id="button"> 
+            <a href="#" class="knopka" id="signupButton">Sign up</a>
+            <p class="info">Already have an account? <a href="../login/index.html" class="log">Log in </a> </p>
+        </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+ 
+</body>
+</html>

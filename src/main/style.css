@@ -54,7 +54,7 @@ body::-webkit-scrollbar-track {
     display: flex;
     /* display: table; */
     padding-top: 4.5vh;
-    padding-bottom: 4.5vh;
+    padding-bottom: 4vh;
     padding-left: 2.5vh;
     padding-right: 2.5vh;
     height: 43vh;
@@ -75,7 +75,7 @@ body::-webkit-scrollbar-track {
     margin-right: 5vh;
 }
 .person{
-    display: Flex;
+    /* display: Flex; */
     text-align: justify;
     border-radius:25px;
     border-width: 10px;
@@ -101,7 +101,7 @@ body::-webkit-scrollbar-track {
 }
 .info{
     display: inline;
-    /* max-width: 70vh; */
+    /* width: 100%; */
     margin: 0;
 }
 .headers{
@@ -133,7 +133,7 @@ body::-webkit-scrollbar-track {
 #MainScreen{
     width: 100%;
     height: 100vh;
-    background: url("1620031964_3-phonoteka_org-p-fon-na-kompyuter-estetika-4.jpg") no-repeat center center; 
+    background: url("../../resources/1620031964_3-phonoteka_org-p-fon-na-kompyuter-estetika-4.jpg") no-repeat center center; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -145,18 +145,28 @@ body::-webkit-scrollbar-track {
     
     /* border-radius:25px; */
     margin: 0vh 15vh;
-    background: #aa8285;
-    padding: 2.5vh 5vh;
+
+    padding: 1vh 5vh;
 }
 .user{
-    margin: 3vh 5vh;
+    background: #aa8285;
+    padding: 3vh 5vh;
+    margin: 2.5vh 0;
     text-align: justify;
-    min-height: 22vh;
+    min-height: 20vh;
+    min-width: min-content;
 }
-.position{
+p.position{
     margin: 0;
-    font-size: 20px;
+    font-size: 23px;
+    font-style: italic;
 }
 .description{
     margin-top: 1vh;
+}
+h2{
+    margin: 0;
+}
+p.info{
+    margin: 0;
 }
