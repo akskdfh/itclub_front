@@ -21,7 +21,22 @@ function createTeammateCard(cardInfo, position) {
     pInfo.classList.add("info");
     let img = document.createElement("img");
     img.classList.add("photo");
-    img.src = "../../resources/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg";
+    if(cardInfo.username == "vanyavvorobev") {
+        img.src = "../../resources/kitty.jpg"
+        cardInfo.description = "Люблю майнкрафт, обажаю террарию!!!\nРодился 14 апреля 2004 года в 4 часа ночи(Сыграем в игру? Какое мое любимое число?) по Иркутскому времени в городе Черемхово Иркутской области, после переехал в Республику Бурятия и прожил там в селе Хоринск всю свою жизнь до поступления на HITS. По национальности я Русский. Ходил в детский садик \"Березка\". Учился в Школе номер 2."
+    }
+    else if(cardInfo.username == "ElenaKarelina") {
+        img.src = "../../resources/Lena.jpg"
+    }
+    else if(cardInfo.username == "e1_boitsov") {
+        img.src = "../../resources/Vanya.jpg"
+    }
+    else if(cardInfo.username == "allieeN") {
+        img.src = "../../resources/Alyona.jpg"
+    }
+    else {
+        img.src = "https://sun9-east.userapi.com/sun9-24/s/v1/ig2/O7wIKyyo_kvoYDYYl6HijvQ1Kq1OmKjh89e3aOQ3e9j8C185KaDmuV85hhRqRzLT9C986ERxBVZw7W_a86q1BbtN.jpg?size=1280x906&quality=96&type=album";
+    }
     img.alt = "аватарка"
     img.align = "left";
     pInfo.appendChild(img);
@@ -58,7 +73,21 @@ function createUserCard(cardInfo) {
     pInfo.classList.add("info");
     let img = document.createElement("img");
     img.classList.add("photo");
-    img.src = "../../resources/1640528610_2-abrakadabra-fun-p-serii-chelovek-na-avu-2.jpg";
+    if(cardInfo.username == "vanyavvorobev") {
+        img.src = "../../resources/kitty.jpg"
+    }
+    else if(cardInfo.username == "ElenaKarelina") {
+        img.src = "../../resources/Lena.jpg"
+    }
+    else if(cardInfo.username == "") {
+
+    }
+    else if(cardInfo.username == "") {
+
+    }
+    else {
+        img.src = "https://sun9-east.userapi.com/sun9-24/s/v1/ig2/O7wIKyyo_kvoYDYYl6HijvQ1Kq1OmKjh89e3aOQ3e9j8C185KaDmuV85hhRqRzLT9C986ERxBVZw7W_a86q1BbtN.jpg?size=1280x906&quality=96&type=album";
+    }
     img.alt = "аватарка"
     img.align = "left";
     pInfo.appendChild(img);
