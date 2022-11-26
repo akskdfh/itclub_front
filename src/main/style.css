@@ -82,9 +82,9 @@ body::-webkit-scrollbar-track {
     margin-left: 2.5vh;
     margin-right: 2.5vh;
     min-width: 70vh;
-    height: 35vh;
+    height: 33vh;
     background:#aa8285;
-    padding: 20px 20px 20px 20px;    
+    padding: 30px;    
     overflow-y: scroll;
 }
 .person::-webkit-scrollbar {
@@ -126,7 +126,7 @@ body::-webkit-scrollbar-track {
 .photo{
     width: 20vh;
     height: 20vh;
-    margin: 0 3vh 0 0;
+    margin: 0 3vh 1vh 0;
     /*  */
 
 }
@@ -163,9 +163,10 @@ p.position{
 }
 .description{
     margin-top: 1vh;
+    font-size: 20px;
 }
 h2{
-    margin: 0;
+    margin: 1vh 0;
 }
 p.info{
     margin: 0;
